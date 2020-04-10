@@ -8,19 +8,27 @@ def snailArray(argv):
 	side = len(argv) - 1
 	j = 1
 	while i <= top_side and j <= side:
-		for i in range(j - 1, side):
-			print(argv[j][i] + ",", end = " ")
-		i +=  1
-		for k in range(i, top_side):
-			print(argv[k + 1][side] + ",", end = " ")
-		j -= 1
+		k = j - 1
+		while k <= side - 1:
+			print(argv[j][k] + ",", end = " ")
+			k += 1
+		i += 1
+		k = i + 1
+		while k <= top_side:
+			print(argv[k][side - 1] + ",", end = " ")
+			k += 1
+		side -= 1
 		if i <= top_side:
-			for k in range(side, j):
+			k = side
+			while k <= j:
 				print(argv[top_side][k] + ",", end = " ")
+				k += 1
 		top_side -= 1
 		if j <= side:
-			for k in range(top_side, i - 1, -1):
+			k = top_side
+			while k < top_side - 1:
 				print(argv[k][j] + ",", end = " ")
+				k += 1
 		j += 1
 
 
